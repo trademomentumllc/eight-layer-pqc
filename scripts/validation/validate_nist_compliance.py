@@ -10,10 +10,10 @@ def validate_ml_kem_compliance():
     try:
         from pqcrypto.kem.kyber1024 import generate_keypair
         public_key, secret_key = generate_keypair()
-        print("✅ ML-KEM-1024 (FIPS 203): COMPLIANT")
+        print("ML-KEM-1024 (FIPS 203): COMPLIANT")
         return True
     except Exception as e:
-        print(f"❌ ML-KEM-1024 (FIPS 203): FAILED - {e}")
+        print(f"ML-KEM-1024 (FIPS 203): FAILED - {e}")
         return False
 
 def validate_ml_dsa_compliance():
@@ -25,10 +25,10 @@ verify
         message = b"test"
         signature = sign(message, secret_key)
         verify(signature, message, public_key)
-        print("✅ ML-DSA-87 (FIPS 204): COMPLIANT")
+        print("ML-DSA-87 (FIPS 204): COMPLIANT")
         return True
     except Exception as e:
-        print(f"❌ ML-DSA-87 (FIPS 204): FAILED - {e}")
+        print(f"ML-DSA-87 (FIPS 204): FAILED - {e}")
         return False
 
 def main():
@@ -44,10 +44,10 @@ def main():
     
     print("=" * 70)
     if all(results):
-        print("🎉 ALL TESTS PASSED - NIST COMPLIANT")
+        print("ALL TESTS PASSED - NIST COMPLIANT")
         return 0
     else:
-        print("⚠️ COMPLIANCE VALIDATION FAILED")
+        print("COMPLIANCE VALIDATION FAILED")
         return 1
 
 if __name__ == "__main__":
