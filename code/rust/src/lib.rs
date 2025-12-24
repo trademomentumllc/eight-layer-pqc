@@ -165,11 +165,6 @@ impl SecureServer {
         }
     }
 
-    /// Create a new secure server with default settings
-    pub fn default() -> Self {
-        Self::new(1000, session::DEFAULT_SESSION_TIMEOUT)
-    }
-
     /// Get server's ML-KEM public key for distribution to clients
     pub fn get_mlkem_public_key(&self) -> Vec<u8> {
         self.keypair.get_mlkem_public_key()
@@ -258,6 +253,12 @@ impl SecureServer {
     /// Get a mutable reference to the session manager
     pub fn session_manager_mut(&mut self) -> &mut session::SessionManager {
         &mut self.session_manager
+    }
+}
+
+impl Default for SecureServer {
+    fn default() -> Self {
+        Self::new(1000, session::DEFAULT_SESSION_TIMEOUT)
     }
 }
 

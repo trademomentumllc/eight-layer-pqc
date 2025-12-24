@@ -239,6 +239,12 @@ pub struct SessionManager {
     default_timeout: u64,
 }
 
+impl Default for SessionManager {
+    fn default() -> Self {
+        Self::new(1000, DEFAULT_SESSION_TIMEOUT)
+    }
+}
+
 impl SessionManager {
     /// Create a new session manager
     ///
@@ -251,11 +257,6 @@ impl SessionManager {
             max_sessions,
             default_timeout: default_timeout.min(MAX_SESSION_LIFETIME),
         }
-    }
-
-    /// Create a new session manager with default settings
-    pub fn default() -> Self {
-        Self::new(1000, DEFAULT_SESSION_TIMEOUT)
     }
 
     /// Create a new session
@@ -336,11 +337,7 @@ impl SessionManager {
         let initial_count = self.sessions.len();
 
         self.sessions.retain(|_, session| {
-            if session.state == SessionState::Expired || now >= session.expires_at {
-                false
-            } else {
-                true
-            }
+            !(session.state == SessionState::Expired || now >= session.expires_at)
         });
 
         initial_count - self.sessions.len()
