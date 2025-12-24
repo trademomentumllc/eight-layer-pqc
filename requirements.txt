@@ -1,12 +1,15 @@
 # Eight-Layer PQC Framework - Python Dependencies
-# Post-Quantum Cryptography Reference Implementations
+# Post-Quantum Cryptography Production Implementations
+# NIST FIPS 203/204/205 Compliant
 
-# Core PQC Library (Open Quantum Safe)
-liboqs-python>=0.9.0
+# Core PQC Library (pqcrypto - Python bindings for PQC algorithms)
+pqcrypto>=0.1.3
 
-# Cryptographic Primitives
-cryptography>=41.0.0
+# Classical Cryptographic Primitives (for hybrid mode)
 pycryptodome>=3.19.0
+
+# Additional PQC support
+oqs>=0.10.0
 
 # Testing and Validation
 pytest>=7.4.0

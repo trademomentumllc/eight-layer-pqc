@@ -1,6 +1,13 @@
 # Eight-Layer Quantum-Hardened Security Architecture v2.0
 
-**Status**: 🟢 Production Ready | **Compliance**: NIST FIPS 
+[![CI/CD Pipeline](https://github.com/TradeMomentumLLC/eight-layer-pqc/actions/workflows/ci.yml/badge.svg)](https://github.com/TradeMomentumLLC/eight-layer-pqc/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/TradeMomentumLLC/eight-layer-pqc/actions/workflows/ci.yml/badge.svg?job=codeql-analysis)](https://github.com/TradeMomentumLLC/eight-layer-pqc/actions/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/downloads/)
+[![Go 1.22](https://img.shields.io/badge/go-1.22-00ADD8.svg)](https://golang.org/dl/)
+[![Rust Stable](https://img.shields.io/badge/rust-stable-orange.svg)](https://www.rust-lang.org/)
+[![NIST FIPS 203/204/205](https://img.shields.io/badge/NIST-FIPS%20203%2F204%2F205-green.svg)](https://csrc.nist.gov/Projects/post-quantum-cryptography)
+
+**Status**: 🟢 Production Ready | **Compliance**: NIST FIPS
 203/204/205 | HIPAA | GDPR
 
 ## Overview
