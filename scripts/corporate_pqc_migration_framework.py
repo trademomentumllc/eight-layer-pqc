@@ -20,13 +20,11 @@
 ╚══════════════════════════════════════════════════════════════════════════════╝
 """
 
-import json
 import hashlib
 from dataclasses import dataclass, field
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional
 from enum import Enum, auto
 from datetime import datetime, timedelta
-import math
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SECTION 1: MATHEMATICAL RISK MODELS
@@ -1185,4 +1183,4 @@ def demonstrate_framework():
 
 
 if __name__ == "__main__":
-    results = demonstrate_framework()
+    demonstrate_framework()

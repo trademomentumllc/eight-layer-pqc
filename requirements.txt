@@ -33,3 +33,4 @@ line-profiler>=4.1.0
 # Jupyter for Interactive Examples
 jupyter>=1.0.0
 notebook>=7.0.0
+nbconvert>=7.16.4  # Security fix for CVE-2024-32476

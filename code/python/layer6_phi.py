@@ -747,7 +747,7 @@ def demo_phi_management():
     phi_manager.grant_access(compartment_id, "dr_adams", granting_user="dr_jones")
     print("   Access granted to dr_adams")
 
-    retrieved = phi_manager.retrieve_phi(compartment_id, user_id="dr_adams")
+    phi_manager.retrieve_phi(compartment_id, user_id="dr_adams")
     print(f"   Dr. Adams successfully retrieved patient data")
 
     phi_manager.revoke_access(compartment_id, "dr_adams", revoking_user="dr_jones")
@@ -761,7 +761,7 @@ def demo_phi_management():
     print(f"   Original HMAC: {original_hmac.hex()[:32]}...")
 
     # Verify integrity
-    retrieved = phi_manager.retrieve_phi(compartment_id, verify_integrity=True)
+    phi_manager.retrieve_phi(compartment_id, verify_integrity=True)
     print("   Integrity verification passed")
 
     # Update patient data
