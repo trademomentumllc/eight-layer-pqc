@@ -5,7 +5,12 @@
 
 version: 2
 updates:
-  - package-ecosystem: "python" "golang" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "python"
+    directory: "/"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "gomod"
+    directory: "/code/go"
+    schedule:
+      interval: "weekly"
+
