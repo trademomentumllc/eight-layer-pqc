@@ -332,8 +332,7 @@ mod tests {
 
         // Verify both parties derived the same session key
         assert_eq!(
-            client_result.session_key,
-            server_result.session_key,
+            client_result.session_key, server_result.session_key,
             "Session keys must match"
         );
 
@@ -386,7 +385,8 @@ mod tests {
         let invalid_ct = vec![0u8; 100];
         let client_x25519_pub = [0u8; 32];
 
-        let result = server_keypair.exchange(server_x25519_keypair, &client_x25519_pub, &invalid_ct);
+        let result =
+            server_keypair.exchange(server_x25519_keypair, &client_x25519_pub, &invalid_ct);
         assert!(result.is_err());
 
         match result.unwrap_err() {

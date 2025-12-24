@@ -282,7 +282,10 @@ impl SessionManager {
     }
 
     /// Get a session by ID
-    pub fn get_session(&self, session_id: &[u8; SESSION_ID_SIZE]) -> Result<&Session, SessionError> {
+    pub fn get_session(
+        &self,
+        session_id: &[u8; SESSION_ID_SIZE],
+    ) -> Result<&Session, SessionError> {
         self.sessions
             .get(session_id)
             .ok_or(SessionError::SessionNotFound)
@@ -299,7 +302,10 @@ impl SessionManager {
     }
 
     /// Validate and touch a session
-    pub fn validate_session(&mut self, session_id: &[u8; SESSION_ID_SIZE]) -> Result<(), SessionError> {
+    pub fn validate_session(
+        &mut self,
+        session_id: &[u8; SESSION_ID_SIZE],
+    ) -> Result<(), SessionError> {
         let session = self.get_session_mut(session_id)?;
 
         if !session.is_valid()? {
@@ -312,7 +318,10 @@ impl SessionManager {
     }
 
     /// Terminate a session
-    pub fn terminate_session(&mut self, session_id: &[u8; SESSION_ID_SIZE]) -> Result<(), SessionError> {
+    pub fn terminate_session(
+        &mut self,
+        session_id: &[u8; SESSION_ID_SIZE],
+    ) -> Result<(), SessionError> {
         if let Some(mut session) = self.sessions.remove(session_id) {
             session.terminate();
             Ok(())

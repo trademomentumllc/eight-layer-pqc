@@ -127,11 +127,16 @@ impl SecureConnection {
     }
 
     /// Verify the connection with a session manager
-    pub fn verify(&self, manager: &mut session::SessionManager) -> Result<(), NetworkSecurityError> {
+    pub fn verify(
+        &self,
+        manager: &mut session::SessionManager,
+    ) -> Result<(), NetworkSecurityError> {
         let session = manager.get_session(&self.session_id)?;
 
         if !session.verify_key(&self.session_key) {
-            return Err(NetworkSecurityError::Session(session::SessionError::KeyMismatch));
+            return Err(NetworkSecurityError::Session(
+                session::SessionError::KeyMismatch,
+            ));
         }
 
         manager.validate_session(&self.session_id)?;
@@ -292,7 +297,9 @@ impl SecureClient {
         server_x25519_public: &[u8],
         server_mlkem_public: &[u8],
     ) -> Result<ClientConnectionResult, NetworkSecurityError> {
-        let kex_result = self.keypair.exchange(server_x25519_public, server_mlkem_public)?;
+        let kex_result = self
+            .keypair
+            .exchange(server_x25519_public, server_mlkem_public)?;
 
         Ok(ClientConnectionResult {
             x25519_public: kex_result.x25519_public,
@@ -416,7 +423,8 @@ mod tests {
             let client = SecureClient::new(client_id.clone());
 
             // Generate fresh X25519 keypair for each connection
-            let (server_x25519_pub, server_x25519_keypair) = SecureServer::generate_x25519_keypair();
+            let (server_x25519_pub, server_x25519_keypair) =
+                SecureServer::generate_x25519_keypair();
 
             let client_result = client
                 .connect(&server_x25519_pub, &server_mlkem_pub)
@@ -528,7 +536,8 @@ mod tests {
             let client_id = format!("client-{}", i).into_bytes();
             let client = SecureClient::new(client_id.clone());
 
-            let (server_x25519_pub, server_x25519_keypair) = SecureServer::generate_x25519_keypair();
+            let (server_x25519_pub, server_x25519_keypair) =
+                SecureServer::generate_x25519_keypair();
             let client_result = client
                 .connect(&server_x25519_pub, &server_mlkem_pub)
                 .unwrap();
