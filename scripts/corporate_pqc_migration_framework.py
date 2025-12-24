@@ -16,7 +16,7 @@
 ║    2035: ALL quantum-vulnerable algorithms DISALLOWED                         ║
 ║                                                                               ║
 ║  Author: Jason Jarmacz | Trade Momentum LLC                                   ║
-║  Framework: NeuroProgressive AI Evolution Strategy                            ║
+║  Framework: NeuroDivergent AI Evolution Strategy                            ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 """
 

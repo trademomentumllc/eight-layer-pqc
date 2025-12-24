@@ -601,7 +601,7 @@ class CryptoProvider:
 ---
 
 *Framework Version 1.0 | December 2024*
-*NeuroProgressive AI Evolution Strategy | Trade Momentum LLC*
+*NeuroDivergent AI Evolution Strategy | Trade Momentum LLC*
 ''''''''''''''''''''''''''''''''
 
 p
