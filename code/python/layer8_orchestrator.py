@@ -322,7 +322,7 @@ class PQCOrchestrator:
                 type=AlgorithmType.SYMMETRIC,
                 security_level=SecurityLevel.LEVEL_5,
                 version="FIPS-197",
-                quantum_safe=False,  # Symmetric is quantum-resistant but not immune
+                quantum_safe=True,  # AES-256 provides 128-bit post-quantum security (Grover)
                 standardized=True,
                 key_sizes={"key": 32, "nonce": 12, "tag": 16},
                 performance_tier="fast"
@@ -337,14 +337,14 @@ class PQCOrchestrator:
                 key_sizes={"key": 48, "output": 48},
                 performance_tier="fast"
             ),
-            "SHA3-256": AlgorithmMetadata(
-                name="SHA3-256",
+            "SHA3-512": AlgorithmMetadata(
+                name="SHA3-512",
                 type=AlgorithmType.HASH,
-                security_level=SecurityLevel.LEVEL_3,
+                security_level=SecurityLevel.LEVEL_5,
                 version="FIPS-202",
                 quantum_safe=True,
                 standardized=True,
-                key_sizes={"output": 32},
+                key_sizes={"output": 64},
                 performance_tier="fast"
             )
         }
@@ -697,7 +697,7 @@ def demo_orchestration():
     orchestrator.register_layer(
         layer_id="layer1",
         layer_name="Identity Verification",
-        algorithms=["ML-DSA-87", "SHA3-256"],
+        algorithms=["ML-DSA-87", "SHA3-512"],
         metadata={"description": "FIDO2-style authentication"}
     )
     print("   Registered Layer 1: Identity Verification")
@@ -713,7 +713,7 @@ def demo_orchestration():
     orchestrator.register_layer(
         layer_id="layer6",
         layer_name="PHI Isolation",
-        algorithms=["HMAC-SHA3-384", "SHA3-256"],
+        algorithms=["HMAC-SHA3-384", "SHA3-512"],
         metadata={"description": "HIPAA-compliant PHI protection"}
     )
     print("   Registered Layer 6: PHI Isolation")
